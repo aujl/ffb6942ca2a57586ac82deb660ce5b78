@@ -15,7 +15,7 @@ class InformationRatio():
     __init__: initialize self.AllData with dataframe that contains the bare and risk-adjusted IR added
     CalculateInformationRatio: method to compute information ratios and add them to a dataframe
     SharpeRatio: function to compute the Sharpe ratio (risk-adjusted returns) and add them to a dataframe
-    Returns: method to compute the returns or log-returns and add them to 
+    Returns: method to compute the returns or log-returns and add them to a dataframe
 
     """
 
@@ -36,6 +36,7 @@ class InformationRatio():
         -----------
 
         AllData: pandas dataframe expected to contain OHLCV data of the assets/funds
+        SymbolList: list of str, ticker symbols in dataframe AllData
         BenchmarkLabel: str, ticker symbol (per Yahoo finance standard) for use as the benchmark 
         Window: int, number of time steps to use to evaluate the information ratio
         RiskFreeRate: float, return rate of risk-free investment used to compute Sharpe ratio
@@ -87,15 +88,15 @@ class InformationRatio():
         -----------
 
         TickerDf: pandas dataframe expected to contain OHLCV data of the asset/fund
+        InvestmentLabel: str, ticker symbol (per Yahoo finance standard) for use as the benchmark 
         BenchmarkLabel: str, ticker symbol (per Yahoo finance standard) for use as the benchmark 
-        window: int, number of time steps to use to evaluate the information ratio
+        Window: int, number of time steps to use to evaluate the information ratio
         risk_adjusted: boolean, toggle to switch between risk-adjusted (IR_label=='IRA') and bare (IR_label=='IR') excess returns for the computation of the IR
 
         Returns:
         --------
 
-        TickerDf: pandas dataframe, containing an additional column labeled <InvestmentLabel>_<BenchmarkLabel>_<IR_label>_<window>.
-        BenchmarkLabel: str, ticker symbol and column label of TickerDf that is used as the benchmark of the information ratio
+        TickerDf: pandas dataframe, containing an additional column labeled <InvestmentLabel>_<BenchmarkLabel>_<IR_label>_<Window>.
         """
 
         # catch for comparing identical tickers
@@ -167,7 +168,7 @@ class InformationRatio():
         TickerDf: pandas dataframe that contains a label given by ReturnsLabel
         ReturnsLabel: str, column label of column with returns
         RiskFreeRate: float, assumed risk-free return
-        window: int, number of steps to consider in the computation of the Sharpe ratio
+        Window: int, number of steps to consider in the computation of the Sharpe ratio
 
 
         Returns:

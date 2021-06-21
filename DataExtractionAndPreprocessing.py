@@ -32,6 +32,8 @@ class DataExtractionAndPreprocessing():
         Parameters:
         -----------
         SymbolList: list of str, containing the Symbols of the historical data to fetch
+        StartDate: str, the YYYY-DD-MM starting date of the data analysis 
+
 
         Returns:
         --------
@@ -118,7 +120,7 @@ class DataExtractionAndPreprocessing():
         ----
         Parameters:
         ----
-        ListOfDfs: dictionary of dataframes to merge
+        ListOfDfs: list of pandas dataframes to merge
         ColLabelLeft: str, column label of the dataframe to merge into
         ColLabelRight: str, column label of the dataframe to merge from
 
@@ -126,7 +128,7 @@ class DataExtractionAndPreprocessing():
         Returns:
         ----
 
-        MergedDf: pandas dataframe containing all columns of all dataframes in the dictionary DictOfDfs
+        MergedDf: pandas dataframe containing all columns of all dataframes in the list ListOfDfs
         """
 
         # for initialization of output dataframe, the first iteration is used

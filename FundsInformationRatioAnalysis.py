@@ -38,7 +38,7 @@ if __name__ == "__main__":
     if not os.path.exists('plots'):
         os.makedirs('plots')
 
-
+    # plot IRs as histograms and as line plots
     for j in inp.SymbolList:
         if j != inp.BenchmarkLabel:
 
