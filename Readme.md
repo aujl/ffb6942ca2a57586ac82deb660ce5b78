@@ -34,7 +34,7 @@ To this end
 Plot: We want to predict a fund’s future performance using information ratios that it
 realized in the past. 
 
-1. prepare input past information ratios (IRs) as features for a time-series prediction model. 
+1. prepare the past information ratios (IRs) as features for a time-series prediction model. 
 2. Desired functionality:
   * different parametrizations of IRs (see assumption 1)
   * calculate information ratios based on excess returns (see assumption 2)
@@ -58,10 +58,12 @@ Here's a brief summary of the assumptions taken to deal with the ambiguity of th
 
 That's a multifaceted question, and depends if the 'using these features' is taken as, a), inclusive or, b), exclusive.
 
-a) If we're allowed to consider additional data besides the IRs that use only the benchmark index and the funds values as ingredients, then I would opt for a deep neural network with a two-branch layout: one branch that is composed of a set of long-short-term-memory layers that process the IR features and a second branch of dense layers that processes out-of-series data like news sentiment or the tickers/features of the holdings of the funds (see [^1] for a sketch of the model we created doing the tutorial [here](https://medium.com/codex/stock-price-prediction-a-modified-approach-8d63ea6726a7 ).
+Generally, a predictive model for a time series represents an attempt at forecasting the future values of said time series. Here, for the sake of simplicity and nature of this assessment, consider the information ratio (IR) -- a predictive model could forecast (i.e. IR in t+365 days = 0.3798) or classify (i.e., IR larger or smaller than 0.5) the IR. The resulting investment strategy -- presupposing a reliable forecast or classification is feasible -- can then be used to make a recommendation which funds to choose with what weight. 
+
+a) If we're allowed to consider additional data besides the IRs that use only the benchmark index and the funds values as ingredients, then I would opt for a deep neural network with a two-branch layout: one branch that is composed of a set of long-short-term-memory layers that process the IR features and a second branch of dense layers that processes out-of-series data like news sentiment or the tickers/features of the holdings of the funds (see [this example](./two_branch_model.png) for a sketch of the model we created doing the tutorial [here](https://medium.com/codex/stock-price-prediction-a-modified-approach-8d63ea6726a7 ).
 
 b) If we're not allowed to consider additional out-of-series data, then I'd opt for a non-AI based statistical forecasting method like ARIMAs (auto-regressive integrated moving average) from the statsmodels python module or Facebook's 'Prophet' model [here](https://facebook.github.io/prophet/). This intuition is based on a recent comparison of statistical and machine-learning-based forecasting techniques with in-series data [(see here)](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0194889).
 
 
 <br/>
-[^1]: ![Alt](two_branch_model.png "Two branch model created to process time-series and news-sentiment data")
+[^1]: 
