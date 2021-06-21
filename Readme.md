@@ -64,4 +64,4 @@ b) If we're not allowed to consider additional out-of-series data, then I'd opt 
 
 
 <br/>
-[^1]: ![Alt](/two_branch_model.png "Two branch model created to process time-series and news-sentiment data")
+[^1]: ![Alt](two_branch_model.png "Two branch model created to process time-series and news-sentiment data")
