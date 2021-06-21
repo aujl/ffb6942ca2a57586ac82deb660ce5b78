@@ -65,5 +65,3 @@ a) If we're allowed to consider additional data besides the IRs that use only th
 b) If we're not allowed to consider additional out-of-series data, then I'd opt for a non-AI based statistical forecasting method like ARIMAs (auto-regressive integrated moving average) from the statsmodels python module or Facebook's 'Prophet' model [here](https://facebook.github.io/prophet/). This intuition is based on a recent comparison of statistical and machine-learning-based forecasting techniques with in-series data [(see here)](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0194889).
 
 
-<br/>
-[^1]: 
