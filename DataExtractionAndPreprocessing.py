@@ -81,6 +81,9 @@ class DataExtractionAndPreprocessing():
 
 
         """
+        # workaround for current issues with pandas datareader
+        import yfinance as yf
+        yf.pdr_override()
 
         # if the output directory does not exist, create it
         if not os.path.exists('fund_details'):
@@ -99,7 +102,11 @@ class DataExtractionAndPreprocessing():
             print("fetching historical data for "+ ticker)
             
             try:
-                df=web.DataReader(ticker, 'yahoo', StartDate, EndDate) # read the data from 'yahoo finance' 
+                # workaround for pandas interface to yahoo finance
+                df = web.get_data_yahoo(ticker, data_source='yahoo', start=StartDate, end=EndDate)
+
+                # pandas interface stopped working
+                #df=web.DataReader(ticker, 'yahoo', StartDate, EndDate) # read the data from 'yahoo finance' 
                 self.AddColumnPrefix(df,ticker) # add ticker label as prefix to data
                 ListOfTickerDfs.append(df) # append to list of dfs
                 df.to_csv('fund_details/{}.csv'.format(ticker)) # save downloaded data for later
